@@ -1,0 +1,8 @@
+
+class Player {
+public:
+    string player_id;
+    int score;
+    Player* next;
+    Player(const string& id) : player_id(id), score(0), next(nullptr) {}
+};
