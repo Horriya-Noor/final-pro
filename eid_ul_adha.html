@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eid ul Adha Mubarak 🌙</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#D4AF37; --gold2:#FFD700; --gold3:#f0c040;
+  --bg:#071510; --bg2:#0d2218; --bg3:#112b1e;
+  --card:#ffffff0d; --card2:#ffffff14;
+  --border:rgba(212,175,55,0.35); --border2:rgba(212,175,55,0.7);
+  --text:#fff; --text2:#FFE4A0; --text3:#c8e6c0;
+}
+body.light {
+  --bg:#f5f0e0; --bg2:#ede5c8; --bg3:#e4d8ae;
+  --card:rgba(255,255,255,0.55); --card2:rgba(255,255,255,0.75);
+  --border:rgba(160,120,0,0.3); --border2:rgba(160,120,0,0.6);
+  --text:#2a1a00; --text2:#7a5200; --text3:#2a5a30;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  min-height:100vh;
+  transition:background 0.5s,color 0.5s;
+}
+
+/* ---- TOGGLE ---- */
+#toggle-btn{
+  position:fixed;top:16px;right:16px;z-index:9999;
+  background:var(--gold);color:#1a1000;
+  border:none;border-radius:30px;padding:8px 18px;
+  font-weight:700;font-size:13px;cursor:pointer;
+  box-shadow:0 2px 18px rgba(212,175,55,0.45);
+  transition:all 0.3s;
+}
+#toggle-btn:hover{transform:scale(1.07);}
+
+/* ---- NAV DOTS ---- */
+#nav-dots{
+  position:fixed;left:14px;top:50%;transform:translateY(-50%);
+  z-index:999;display:flex;flex-direction:column;gap:9px;
+}
+.ndot{
+  width:10px;height:10px;border-radius:50%;
+  background:rgba(212,175,55,0.25);border:1.5px solid var(--gold);
+  cursor:pointer;transition:all 0.3s;
+}
+.ndot.on{background:var(--gold);transform:scale(1.4);}
+
+/* ---- PAGES ---- */
+.page{
+  min-height:100vh;display:none;
+  flex-direction:column;align-items:center;justify-content:center;
+  position:relative;padding:50px 24px 60px;
+  animation:pgIn 0.7s cubic-bezier(.4,0,.2,1);
+  overflow:hidden;
+}
+.page.active{display:flex;}
+@keyframes pgIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---- STAR CANVAS ---- */
+.star-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.s{position:absolute;background:#fff;border-radius:50%;animation:tw 2s infinite alternate;}
+@keyframes tw{from{opacity:.15}to{opacity:1}}
+
+/* ---- PAGE BACKGROUNDS ---- */
+#p1{background:radial-gradient(ellipse at 60% 40%,#1a4a2e,#071510);}
+#p2{background:radial-gradient(ellipse at 30% 60%,#1a3a28,#071510);}
+#p3{background:radial-gradient(ellipse at 70% 30%,#2a2000,#071510);}
+#p4{background:radial-gradient(ellipse at 50% 70%,#0a2a3a,#071510);}
+#p5{background:radial-gradient(ellipse at 40% 40%,#1a0a2e,#071510);}
+#p6{background:radial-gradient(ellipse at 60% 60%,#2a1a00,#071510);}
+#p7{background:radial-gradient(ellipse at 30% 30%,#0a2e1a,#071510);}
+#p8{background:radial-gradient(ellipse at 50% 50%,#1a2e10,#071510);}
+#p9{background:radial-gradient(ellipse at 70% 70%,#2e1000,#071510);}
+#p10{background:radial-gradient(ellipse at 50% 30%,#1a4a2e,#071510);}
+body.light #p1,body.light #p2,body.light #p3,body.light #p4,body.light #p5,
+body.light #p6,body.light #p7,body.light #p8,body.light #p9,body.light #p10{
+  background:linear-gradient(135deg,#f5f0e0,#ede5c8);
+}
+
+/* ---- ENTRY CARD ---- */
+.entry-wrap{
+  background:var(--card2);
+  border:2px solid var(--border2);
+  border-radius:28px;padding:54px 44px;
+  max-width:480px;width:100%;text-align:center;
+  backdrop-filter:blur(12px);
+  animation:glowpulse 3s ease-in-out infinite;
+  position:relative;z-index:1;
+}
+@keyframes glowpulse{
+  0%,100%{box-shadow:0 0 30px rgba(212,175,55,.2);}
+  50%{box-shadow:0 0 90px rgba(212,175,55,.55);}
+}
+.moon-spin{font-size:64px;display:inline-block;animation:moonspin 18s linear infinite;}
+@keyframes moonspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.ar-big{
+  font-family:'Amiri',serif;font-size:clamp(26px,5vw,46px);
+  color:var(--gold);text-shadow:0 0 22px rgba(212,175,55,.6);
+  margin:10px 0;animation:floaty 3s ease-in-out infinite;
+}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.sub-ar{font-family:'Amiri',serif;font-size:clamp(14px,2.5vw,20px);color:var(--text2);margin-bottom:18px;}
+input[type=text]{
+  width:100%;padding:14px 18px;border-radius:14px;
+  border:2px solid var(--gold);background:rgba(255,255,255,0.09);
+  color:var(--text);font-size:19px;font-family:'Poppins',sans-serif;
+  outline:none;text-align:center;transition:all 0.3s;margin:14px 0 20px;
+}
+body.light input[type=text]{background:rgba(255,255,255,0.7);}
+input[type=text]:focus{box-shadow:0 0 22px var(--gold);}
+.btn-go{
+  background:linear-gradient(135deg,var(--gold),#9a7000);
+  color:#1a1000;border:none;border-radius:14px;
+  padding:14px 44px;font-size:18px;font-weight:700;
+  cursor:pointer;transition:all 0.3s;letter-spacing:.5px;
+  width:100%;
+}
+.btn-go:hover{transform:scale(1.05);box-shadow:0 0 30px var(--gold);}
+
+/* ---- WISHING CARD ---- */
+.wcard{
+  background:var(--card2);
+  border:1.5px solid var(--border2);
+  border-radius:24px;
+  padding:clamp(24px,4vw,44px) clamp(20px,5vw,50px);
+  max-width:680px;width:100%;
+  backdrop-filter:blur(10px);
+  text-align:center;
+  position:relative;z-index:1;
+  box-shadow:0 8px 60px rgba(0,0,0,.35);
+}
+.wcard::before{
+  content:'';position:absolute;inset:-1px;border-radius:25px;
+  background:linear-gradient(135deg,rgba(212,175,55,.4),transparent,rgba(212,175,55,.2));
+  z-index:-1;pointer-events:none;
+}
+.card-icon{font-size:clamp(56px,10vw,90px);animation:floaty 2.5s ease-in-out infinite;display:block;margin-bottom:10px;}
+.card-title{
+  font-family:'Cinzel Decorative',cursive;
+  font-size:clamp(22px,4.5vw,48px);
+  color:var(--gold);
+  text-shadow:0 0 30px rgba(212,175,55,.5);
+  line-height:1.2;margin-bottom:8px;
+}
+.card-ar{
+  font-family:'Amiri',serif;font-size:clamp(20px,3.5vw,34px);
+  color:var(--gold);margin:12px 0 6px;
+  text-shadow:0 0 14px rgba(212,175,55,.4);
+}
+.card-name{
+  font-size:clamp(20px,3.5vw,38px);font-weight:700;
+  color:var(--gold2);margin:10px 0 14px;
+  text-shadow:0 0 18px rgba(255,215,0,.4);
+  font-family:'Cinzel Decorative',cursive;
+}
+.card-msg{
+  font-size:clamp(14px,2.2vw,18px);
+  color:var(--text2);line-height:1.9;
+  font-family:'Poppins',sans-serif;margin:0 0 6px;
+}
+.card-msg-ar{
+  font-family:'Amiri',serif;font-size:clamp(16px,2.5vw,24px);
+  color:var(--text3);line-height:2;direction:rtl;
+  margin:14px 0 6px;
+}
+.divider{
+  width:80px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:18px auto;border-radius:2px;
+}
+.icon-row{
+  display:flex;gap:clamp(12px,3vw,24px);flex-wrap:wrap;
+  justify-content:center;margin:18px 0 6px;
+}
+.icon-row span{
+  font-size:clamp(28px,5vw,50px);
+  animation:camelwalk 1.6s ease-in-out infinite alternate;
+}
+.icon-row span:nth-child(2n){animation-delay:.3s;}
+.icon-row span:nth-child(3n){animation-delay:.6s;}
+.icon-row span:nth-child(4n){animation-delay:.9s;}
+@keyframes camelwalk{from{transform:translateY(0) rotate(-4deg)}to{transform:translateY(-14px) rotate(4deg)}}
+.lantern{font-size:50px;display:inline-block;animation:swing 2s ease-in-out infinite;}
+@keyframes swing{0%,100%{transform:rotate(-18deg)}50%{transform:rotate(18deg)}}
+
+/* ---- POETRY CARD ---- */
+.poem-box{
+  background:var(--card);
+  border-left:4px solid var(--gold);
+  border-radius:14px;padding:22px 28px;
+  font-family:'Amiri',serif;
+  font-size:clamp(15px,2.4vw,21px);
+  color:var(--text2);line-height:2;
+  font-style:italic;
+  margin:14px 0;
+  width:100%;max-width:600px;
+  text-align:left;
+}
+.poem-box.rtl{direction:rtl;text-align:right;border-left:none;border-right:4px solid var(--gold);}
+.poem-author{font-size:13px;color:var(--gold);margin-top:10px;font-style:normal;text-align:right;}
+
+/* ---- SHARE CARD ---- */
+.share-box{
+  background:var(--card);border:1.5px solid var(--border);
+  border-radius:18px;padding:24px;
+  max-width:600px;width:100%;margin-top:14px;
+}
+textarea{
+  width:100%;background:rgba(0,0,0,.25);
+  border:1.5px solid var(--gold);border-radius:10px;
+  padding:12px 14px;color:var(--text);
+  font-size:14px;font-family:'Poppins',sans-serif;
+  resize:vertical;min-height:90px;outline:none;line-height:1.7;
+}
+body.light textarea{background:rgba(255,255,255,.6);}
+
+/* ---- BUTTONS ---- */
+.nav-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:26px;position:relative;z-index:2;}
+.btn{
+  background:linear-gradient(135deg,var(--gold),#9a7000);
+  color:#1a1000;border:none;border-radius:12px;
+  padding:11px 26px;font-size:14px;font-weight:700;
+  cursor:pointer;transition:all 0.3s;
+}
+.btn:hover{transform:scale(1.07);box-shadow:0 0 20px var(--gold);}
+.btn.out{background:transparent;border:2px solid var(--gold);color:var(--gold);}
+.btn.out:hover{background:var(--gold);color:#1a1000;}
+.sbtn{
+  background:var(--card);border:1.5px solid var(--gold);
+  border-radius:40px;padding:10px 22px;
+  color:var(--gold);font-size:14px;cursor:pointer;
+  font-family:'Poppins',sans-serif;font-weight:600;
+  transition:all 0.3s;margin:6px;
+}
+.sbtn:hover{background:var(--gold);color:#1a1000;transform:scale(1.05);}
+
+/* ---- COUNTDOWN ---- */
+.cd-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:18px 0;}
+.cd-box{
+  background:var(--card2);border:2px solid var(--border2);
+  border-radius:16px;padding:18px 22px;text-align:center;min-width:84px;
+}
+.cd-num{font-size:44px;font-weight:900;color:var(--gold);line-height:1;}
+.cd-lbl{font-size:11px;color:var(--text2);letter-spacing:2px;margin-top:4px;}
+
+/* ---- DHIKR ---- */
+.dhikr-num{font-size:56px;font-weight:900;color:var(--gold);margin:10px 0;}
+.dhikr-ar{font-family:'Amiri',serif;font-size:28px;color:var(--text3);min-height:36px;}
+
+/* ---- CONFETTI / FX ---- */
+.cpiece{
+  position:fixed;width:9px;height:9px;border-radius:2px;
+  animation:cfall 3s linear forwards;pointer-events:none;z-index:9998;
+}
+@keyframes cfall{
+  0%{transform:translateY(-10px) rotate(0);opacity:1;}
+  100%{transform:translateY(100vh) rotate(720deg);opacity:0;}
+}
+.fw{
+  position:fixed;width:8px;height:8px;border-radius:50%;
+  animation:fwanim 1.4s ease-out forwards;pointer-events:none;z-index:9998;
+}
+@keyframes fwanim{0%{opacity:1;transform:scale(1);}100%{opacity:0;transform:scale(22);}}
+.sparkle{position:fixed;pointer-events:none;font-size:18px;animation:spkfly 1s forwards;z-index:9999;}
+@keyframes spkfly{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-70px) scale(0)}}
+
+/* ---- LOADER ---- */
+#loader{
+  position:fixed;inset:0;background:#071510;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  z-index:10000;transition:opacity 0.9s;
+}
+#loader.gone{opacity:0;pointer-events:none;}
+.ld-moon{font-size:90px;animation:moonspin 3s linear infinite;}
+.ld-txt{font-family:'Amiri',serif;font-size:24px;color:var(--gold);margin-top:18px;text-align:center;line-height:1.8;}
+
+@media(max-width:540px){
+  .entry-wrap{padding:32px 20px;}
+  .wcard{padding:24px 18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="ld-moon">🌙</div>
+  <div class="ld-txt">بسم الله الرحمن الرحيم<br><span style="font-size:16px;font-family:'Poppins',sans-serif;color:#FFE4A0">Loading your Eid experience…</span></div>
+</div>
+
+<button id="toggle-btn" onclick="toggleMode()">☀️ Light</button>
+<div id="nav-dots"></div>
+
+<!-- ══════════════════════════════════════
+     PAGE 1 — NAME ENTRY
+══════════════════════════════════════ -->
+<div class="page active" id="p1">
+  <div class="star-layer" id="sl1"></div>
+  <div class="entry-wrap">
+    <div class="moon-spin">🌙</div>
+    <div class="ar-big">عيد الأضحى مبارك</div>
+    <div class="sub-ar">Eid ul Adha Mubarak 🎊</div>
+    <p style="color:var(--text2);font-size:clamp(13px,2vw,15px);margin-bottom:4px">Enter your name to receive your personal Eid wish card ✨</p>
+    <input type="text" id="uname" placeholder="Your name…" maxlength="28" onkeypress="if(event.key==='Enter')begin()">
+    <button class="btn-go" onclick="begin()">🎊 Open My Eid Card 🎊</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 2 — MAIN WISH CARD
+══════════════════════════════════════ -->
+<div class="page" id="p2">
+  <div class="star-layer" id="sl2"></div>
+  <div class="wcard">
+    <span class="card-icon">🌙</span>
+    <div class="card-title">Eid ul Adha Mubarak</div>
+    <div class="card-ar">عيد الأضحى مبارك</div>
+    <div class="divider"></div>
+    <div class="card-name" id="n2">Dear Friend</div>
+    <p class="card-msg" id="m2">May Allah accept your good deeds, forgive your sins, and ease the sufferings of all Muslims around the world. Wishing you a blessed and joyful Eid!</p>
+    <div class="card-msg-ar">تقبل الله منا ومنكم صالح الأعمال</div>
+    <div class="icon-row">
+      <span>🌙</span><span>⭐</span><span>🕌</span><span>🐑</span><span>🤲</span>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn out" onclick="goTo(1)">← Back</button>
+    <button class="btn" onclick="goTo(3)">Next Card →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 3 — BLESSING CARD
+══════════════════════════════════════ -->
+<div class="page" id="p3">
+  <div class="star-layer" id="sl3"></div>
+  <div class="wcard" style="background:linear-gradient(135deg,rgba(212,175,55,.12),rgba(45,122,78,.12))">
+    <span class="card-icon">🤲</span>
+    <div class="card-title">Blessings & Prayers</div>
+    <div class="divider"></div>
+    <div class="card-name" id="n3"></div>
+    <p class="card-msg" id="m3">On this sacred day of Eid ul Adha, may Allah shower you with His infinite mercy, grant all your duas, and fill every corner of your life with happiness, health and barakah.</p>
+    <div class="card-msg-ar">اللهم تقبل منا الصيام والقيام<br>وصالح الأعمال</div>
+    <div class="divider"></div>
+    <div style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:8px">
+      <span class="lantern">🏮</span>
+      <span style="font-size:50px;animation:floaty 2s ease-in-out infinite">🕌</span>
+      <span class="lantern" style="animation-delay:.5s">🏮</span>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn out" onclick="goTo(2)">← Back</button>
+    <button class="btn" onclick="goTo(4)">Next Card →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 4 — SACRIFICE CARD
+══════════════════════════════════════ -->
+<div class="page" id="p4">
+  <div class="star-layer" id="sl4"></div>
+  <div class="wcard">
+    <span class="card-icon">🐑</span>
+    <div class="card-title">Spirit of Sacrifice</div>
+    <div class="card-ar">عيد القربان</div>
+    <div class="divider"></div>
+    <div class="card-name" id="n4"></div>
+    <p class="card-msg" id="m4">The noble sacrifice of Prophet Ibrahim (AS) reminds us that true devotion means giving what we love most for the sake of Allah. May your heart always be filled with that beautiful faith and surrender.</p>
+    <div class="divider"></div>
+    <div style="background:rgba(212,175,55,.1);border-radius:14px;padding:16px 20px;margin-top:8px">
+      <p style="font-family:'Amiri',serif;font-size:clamp(15px,2.5vw,20px);color:var(--gold);line-height:2">
+        "وَمَن يُسْلِمْ وَجْهَهُ إِلَى اللَّهِ وَهُوَ مُحْسِنٌ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقَىٰ"
+      </p>
+      <p style="font-size:12px;color:var(--text2);margin-top:8px">Surah Luqman 31:22</p>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn out" onclick="goTo(3)">← Back</button>
+    <button class="btn" onclick="goTo(5)">Next Card →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 5 — POETRY CARD
+══════════════════════════════════════ -->
+<div class="page" id="p5">
+  <div class="star-layer" id="sl5"></div>
+  <div style="position:relative;z-index:1;max-width:680px;width:100%;text-align:center">
+    <span class="card-icon" style="font-size:60px">📜</span>
+    <div class="card-title" style="font-family:'Cinzel Decorative',cursive;font-size:clamp(20px,4vw,40px);color:var(--gold)">Eid Poetry</div>
+    <p class="card-msg" id="n5sub" style="margin-bottom:18px"></p>
+
+    <div class="poem-box">
+      "Chand raat ki roshni, subah ki azaan,<br>
+      Eid ka din laya khushiyon ka samaan.<br>
+      Har dua qabool ho, har dard door jaye,<br>
+      Tumhari zindagi mein bahar aa jaye."
+      <div class="poem-author">— Eid Mubarak 🌙</div>
+    </div>
+
+    <div class="poem-box rtl">
+      عيدٌ أتى يحمل الأفراح والبِشَر<br>
+      وبالتهاني يعم الكونَ والبشرُ<br>
+      تقبّل اللهُ منا الذبحَ والصلوات<br>
+      وبارك اللهُ فيكم في كل الأوقات
+      <div class="poem-author" style="text-align:left">عيد أضحى مبارك 🕌</div>
+    </div>
+
+    <div class="poem-box">
+      "Roses are red, the crescent is bright,<br>
+      Eid ul Adha fills every heart with light.<br>
+      May Ibrahim's faith live in you this day,<br>
+      And Allah's mercy never fade away."
+      <div class="poem-author">— A blessed Eid wish 🌟</div>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn out" onclick="goTo(4)">← Back</button>
+    <button class="btn" onclick="goTo(6)">Next Card →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 6 — FAMILY CARD
+══════════════════════════════════════ -->
+<div class="page" id="p6">
+  <div class="star-layer" id="sl6"></div>
+  <div class="wcard">
+    <span class="card-icon">👨‍👩‍👧‍👦</span>
+    <div class="card-title">Family Blessings</div>
+    <div class="divider"></div>
+    <div class="card-name" id="n6"></div>
+    <p class="card-msg" id="m6">Eid is the warmth of family, the laughter of children, the embrace of loved ones, and the echo of takbeerat filling the air. May your home be flooded with love, your table with good food, and your heart with peace.</p>
+    <div class="divider"></div>
+    <div class="icon-row">
+      <span>🏠</span><span>💚</span><span>🌹</span><span>🍖</span><span>🍛</span><span>🎁</span>
+    </div>
+    <div class="card-msg-ar" style="margin-top:14px">كل عام وأنتم وأهلكم بألف خير</div>
+  </div>
+  <div class="nav-row">
+    <button class="btn out" onclick="goTo(5)">← Back</button>
+    <button class="btn" onclick="goTo(7)">Next Card →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 7 — DESI FUNNY CARD
+══════════════════════════════════════ -->
+<div class="page" id="p7">
+  <div class="star-layer" id="sl7"></div>
+  <div style="position:relative;z-index:1;max-width:680px;width:100%;text-align:center">
+    <span class="card-icon" style="font-size:60px">😂</span>
+    <div class="card-title" style="font-size:clamp(20px,4vw,40px)">Funny Eid Card</div>
+    <div class="card-name" id="n7" style="margin-bottom:16px"></div>
+
+    <div class="wcard" style="margin-bottom:14px">
+      <p class="card-msg">🐑 <strong style="color:var(--gold)">The Bakra's Eid Wish:</strong><br>"Dear humans, may you always have someone else to sacrifice… I'm just saying. Eid Mubarak — from the bottom of my hooves. 🐾"</p>
+    </div>
+
+    <div class="wcard" style="margin-bottom:14px">
+      <p class="card-msg">💰 <strong style="color:var(--gold)">Eidi Protocol:</strong><br>Age 5 → 😊 gets Rs.100 and runs<br>Age 15 → 😎 gets Rs.500, plays cool<br>Age 25 → 🥺 begs chacha for "just a little"<br>Age 35 → 😭 is now the one giving Eidi</p>
+    </div>
+
+    <div class="wcard">
+      <p class="card-msg">🍖 <strong style="color:var(--gold)">Eid Diet Plan:</strong><br>Breakfast: Biryani<br>Lunch: More biryani<br>Dinner: "Just a small plate" (3 plates later)<br>Midnight: "Thoda aur karahi thi…" 😅</p>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn out" onclick="goTo(6)">← Back</button>
+    <button class="btn" onclick="goTo(8)">Next Card →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 8 — DHIKR + SOUNDS
+══════════════════════════════════════ -->
+<div class="page" id="p8">
+  <div class="star-layer" id="sl8"></div>
+  <div style="position:relative;z-index:1;max-width:680px;width:100%;text-align:center">
+    <span class="card-icon" style="font-size:60px">📿</span>
+    <div class="card-title" style="font-size:clamp(20px,4vw,40px)">Dhikr Corner</div>
+    <div class="card-name" id="n8" style="margin-bottom:16px"></div>
+
+    <div class="wcard" style="margin-bottom:14px">
+      <p style="color:var(--text2);font-size:13px;margin-bottom:12px">Tap to do dhikr on this blessed day</p>
+      <div class="dhikr-num" id="dcount">0</div>
+      <div class="dhikr-ar" id="dar">﷽</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px">
+        <button class="sbtn" onclick="dhikr('subhanallah')">سبحان الله</button>
+        <button class="sbtn" onclick="dhikr('alhamdulillah')">الحمد لله</button>
+        <button class="sbtn" onclick="dhikr('allahu')">الله أكبر</button>
+        <button class="sbtn" onclick="dhikr('labbaik')">لبيك اللهم لبيك</button>
+      </div>
+      <button class="sbtn" style="margin-top:8px;opacity:.7" onclick="resetDhikr()">🔄 Reset</button>
+    </div>
+
+    <div class="wcard">
+      <h3 style="color:var(--gold);margin-bottom:12px;font-size:17px">🔔 Eid Sounds</h3>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <button class="sbtn" onclick="beep('welcome')">🔔 Eid Bell</button>
+        <button class="sbtn" onclick="beep('takbir')">📢 Takbeer Tone</button>
+        <button class="sbtn" onclick="beep('cheer')">🎉 Celebrate!</button>
+        <button class="sbtn" onclick="confetti();fireworks()">🎆 Launch Fireworks</button>
+      </div>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn out" onclick="goTo(7)">← Back</button>
+    <button class="btn" onclick="goTo(9)">Next Card →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 9 — COUNTDOWN
+══════════════════════════════════════ -->
+<div class="page" id="p9">
+  <div class="star-layer" id="sl9"></div>
+  <div class="wcard" style="position:relative;z-index:1">
+    <span class="card-icon">⏳</span>
+    <div class="card-title" style="font-size:clamp(20px,4vw,42px)">Next Eid Countdown</div>
+    <p style="color:var(--text2);font-size:14px;margin-bottom:16px">Eid ul Adha 2026 — 6 June 2026</p>
+    <div class="cd-row">
+      <div class="cd-box"><div class="cd-num" id="cdd">--</div><div class="cd-lbl">DAYS</div></div>
+      <div class="cd-box"><div class="cd-num" id="cdh">--</div><div class="cd-lbl">HOURS</div></div>
+      <div class="cd-box"><div class="cd-num" id="cdm">--</div><div class="cd-lbl">MINS</div></div>
+      <div class="cd-box"><div class="cd-num" id="cds">--</div><div class="cd-lbl">SECS</div></div>
+    </div>
+    <div class="divider"></div>
+    <div class="card-name" id="n9" style="font-size:clamp(16px,3vw,26px);margin:8px 0 12px"></div>
+    <p class="card-msg">May you reach the next Eid with health, iman, and joy. May every day between now and then bring you closer to Allah. 🌙</p>
+    <div class="icon-row" style="margin-top:14px">
+      <span>🕌</span><span>🌙</span><span>⭐</span><span>🤲</span><span>💚</span>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn out" onclick="goTo(8)">← Back</button>
+    <button class="btn" onclick="goTo(10)">Final Card →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 10 — SHARE & FAREWELL
+══════════════════════════════════════ -->
+<div class="page" id="p10">
+  <div class="star-layer" id="sl10"></div>
+  <div style="position:relative;z-index:1;max-width:680px;width:100%;text-align:center">
+    <span class="card-icon" style="font-size:80px">🎊</span>
+    <div class="card-title" style="font-size:clamp(24px,5vw,54px)">Eid Mubarak!</div>
+    <div class="card-ar" style="font-size:clamp(20px,4vw,36px)">تقبل الله منا ومنكم</div>
+
+    <div class="wcard" style="margin:18px 0">
+      <div class="card-name" id="n10" style="font-size:clamp(18px,3.5vw,34px)"></div>
+      <p class="card-msg" id="m10">Wishing you an Eid overflowing with the mercy of Allah, the warmth of family, the joy of togetherness and the sweetest biryani you've ever tasted! 🍛🌙</p>
+      <div class="divider"></div>
+      <div class="icon-row">
+        <span>🌙</span><span>🏮</span><span>🕌</span><span>🐑</span><span>🍖</span><span>💰</span><span>🤲</span><span>⭐</span>
+      </div>
+    </div>
+
+    <div class="share-box">
+      <h3 style="color:var(--gold);margin-bottom:12px;font-size:16px">💌 Share Your Eid Wish</h3>
+      <textarea id="wishtxt" placeholder="Your Eid wish will appear here…"></textarea>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px">
+        <button class="sbtn" onclick="genWish()">✨ Generate Wish</button>
+        <button class="sbtn" onclick="copyWish()">📋 Copy</button>
+        <button class="sbtn" onclick="confetti();fireworks()">🎆 Celebrate!</button>
+      </div>
+    </div>
+  </div>
+  <div class="nav-row">
+    <button class="btn out" onclick="goTo(9)">← Back</button>
+    <button class="btn" onclick="goTo(1)">🔄 Start Over</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════ -->
+<script>
+let uname = '', cur = 1, total = 10, dhikrN = 0, audioCtx = null;
+
+window.onload = () => {
+  setTimeout(() => document.getElementById('loader').classList.add('gone'), 1800);
+  makeStars(); makeDots(); startCD();
+  document.getElementById('uname').focus();
+};
+
+/* DARK/LIGHT */
+function toggleMode() {
+  document.body.classList.toggle('light');
+  document.getElementById('toggle-btn').textContent =
+    document.body.classList.contains('light') ? '🌙 Dark' : '☀️ Light';
+}
+
+/* STARS */
+function makeStars() {
+  for (let i = 1; i <= total; i++) {
+    const el = document.getElementById('sl' + i);
+    if (!el) continue;
+    for (let s = 0; s < 35; s++) {
+      const d = document.createElement('div');
+      d.className = 's';
+      const sz = Math.random() * 2.5 + .8;
+      d.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*2}s;animation-duration:${1+Math.random()*2}s`;
+      el.appendChild(d);
+    }
+  }
+}
+
+/* NAV DOTS */
+function makeDots() {
+  const nav = document.getElementById('nav-dots');
+  for (let i = 1; i <= total; i++) {
+    const d = document.createElement('div');
+    d.className = 'ndot' + (i === 1 ? ' on' : '');
+    d.title = 'Page ' + i;
+    d.onclick = () => goTo(i);
+    nav.appendChild(d);
+  }
+}
+function refreshDots(p) {
+  document.querySelectorAll('.ndot').forEach((d, i) => d.classList.toggle('on', i + 1 === p));
+}
+
+/* NAVIGATE */
+function goTo(n) {
+  if (n > 1 && !uname) { alert('Please enter your name first 🌙'); goTo(1); return; }
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('p' + n).classList.add('active');
+  cur = n; refreshDots(n); window.scrollTo(0, 0);
+}
+
+/* BEGIN */
+function begin() {
+  const v = document.getElementById('uname').value.trim();
+  if (!v) { alert('Please enter your name 😊'); return; }
+  uname = v;
+  setNames(); setWishes();
+  confetti(); beep('welcome');
+  setTimeout(() => goTo(2), 600);
+}
+
+function setNames() {
+  ['n2','n3','n4','n6','n7','n8','n9','n10'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = uname;
+  });
+  const s = document.getElementById('n5sub');
+  if (s) s.textContent = `Special verses for you, ${uname} 🌙`;
+}
+
+function setWishes() {
+  const wishes = {
+    m2: `Dear ${uname}, may Allah accept your prayers and good deeds, forgive your sins, and ease the sufferings of all Muslims. Wishing you a blessed, joyful Eid filled with love and peace!`,
+    m3: `${uname}, on this sacred day may Allah shower you with infinite mercy, grant every dua of your heart, and fill every corner of your life with happiness, health and barakah.`,
+    m4: `${uname}, just as Ibrahim (AS) showed unwavering faith, may your heart always be firm in the love of Allah. May this Eid renew your spirit and deepen your connection with the Divine.`,
+    m6: `${uname}, may your home ring with laughter, your table overflow with good food, and every person you love be wrapped in health and happiness this Eid and always.`,
+    m10: `${uname}, Taqabbal Allahu Minna Wa Minkum! May this blessed Eid fill your life with light, your heart with gratitude, and your home with endless joy! Eid ul Adha Mubarak! 🌙🎊`
+  };
+  Object.entries(wishes).forEach(([id, txt]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = txt;
+  });
+  genWish();
+}
+
+/* AUDIO */
+function getAC() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return audioCtx;
+}
+function beep(type) {
+  try {
+    const ac = getAC();
+    const map = {
+      welcome: [523, 659, 784, 1047],
+      takbir:  [400, 500, 600, 500, 400],
+      cheer:   [800, 1000, 800, 1200],
+      bell:    [880, 1100, 880]
+    };
+    const notes = map[type] || [440];
+    let t = ac.currentTime;
+    notes.forEach((f, i) => {
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.connect(g); g.connect(ac.destination);
+      o.frequency.value = f; o.type = 'sine';
+      g.gain.setValueAtTime(.28, t + i * .16);
+      g.gain.exponentialRampToValueAtTime(.001, t + i * .16 + .38);
+      o.start(t + i * .16); o.stop(t + i * .16 + .38);
+    });
+  } catch (e) {}
+}
+
+/* CONFETTI */
+function confetti() {
+  const cols = ['#D4AF37','#FFD700','#2d7a4e','#fff','#FF6B6B','#4ECDC4','#45B7D1','#FF69B4'];
+  for (let i = 0; i < 70; i++) {
+    setTimeout(() => {
+      const c = document.createElement('div');
+      c.className = 'cpiece';
+      const sz = 6 + Math.random() * 10;
+      c.style.cssText = `left:${Math.random()*100}%;background:${cols[0|Math.random()*cols.length]};width:${sz}px;height:${sz}px;animation-duration:${2+Math.random()*2}s;animation-delay:${Math.random()*.4}s;border-radius:${Math.random()>.5?'50%':'2px'}`;
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 5000);
+    }, i * 25);
+  }
+}
+
+/* FIREWORKS */
+function fireworks() {
+  const cols = ['#D4AF37','#FF6B6B','#4ECDC4','#FFD700','#FF69B4','#00FF7F','#FF8C00'];
+  for (let i = 0; i < 10; i++) {
+    setTimeout(() => {
+      const f = document.createElement('div');
+      f.className = 'fw';
+      f.style.cssText = `left:${15+Math.random()*70}%;top:${10+Math.random()*50}%;background:${cols[0|Math.random()*cols.length]};animation-duration:${1+Math.random()*.8}s`;
+      document.body.appendChild(f);
+      setTimeout(() => f.remove(), 2200);
+    }, i * 150);
+  }
+  beep('cheer');
+}
+
+/* DHIKR */
+const dhikrMap = {
+  subhanallah:   'سبحان الله',
+  alhamdulillah: 'الحمد لله',
+  allahu:        'الله أكبر',
+  labbaik:       'لبيك اللهم لبيك'
+};
+function dhikr(t) {
+  dhikrN++;
+  document.getElementById('dcount').textContent = dhikrN;
+  document.getElementById('dar').textContent = dhikrMap[t];
+  beep('bell');
+  if (dhikrN % 33 === 0) confetti();
+}
+function resetDhikr() {
+  dhikrN = 0;
+  document.getElementById('dcount').textContent = '0';
+  document.getElementById('dar').textContent = '﷽';
+}
+
+/* COUNTDOWN */
+function startCD() {
+  const target = new Date('2026-06-06T00:00:00');
+  function tick() {
+    const diff = target - new Date();
+    if (diff <= 0) { ['cdd','cdh','cdm','cds'].forEach(id => document.getElementById(id).textContent = '🎊'); return; }
+    document.getElementById('cdd').textContent = Math.floor(diff / 86400000);
+    document.getElementById('cdh').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+    document.getElementById('cdm').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+    document.getElementById('cds').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+  }
+  tick(); setInterval(tick, 1000);
+}
+
+/* WISH GENERATOR */
+function genWish() {
+  const n = uname || 'Friend';
+  const opts = [
+    `🌙 Eid ul Adha Mubarak, ${n}! 🌙\n\nMay Allah accept your qurbani, shower you with His mercy, and grant you Jannah.\n\nتقبل الله منا ومنكم 🤲✨`,
+    `🐑 Dear ${n},\n\nThis blessed Eid, may every prayer you whisper reach the heavens and return as barakah.\n\nEid ul Adha Mubarak! 🌟🕌`,
+    `💚 ${n},\n\nMay the spirit of Ibrahim (AS) live in your heart — faith, patience, and total love of Allah.\n\nKul 'aam wa antum bikhair! 🌙🎊`,
+    `🕌 Ya ${n}!\n\nYeh Eid tumhare liye khushiyon, sehat aur Allah ki rehmat laye!\n\nتقبل الله منا ومنكم — Eid Mubarak! 🤲💐`,
+    `⭐ ${n}, on this day of sacrifice and gratitude,\nmay Allah bless you, your family, and all you love.\n\nEid ul Adha Mubarak! 🌙🏮`
+  ];
+  document.getElementById('wishtxt').value = opts[0 | Math.random() * opts.length];
+}
+
+function copyWish() {
+  const txt = document.getElementById('wishtxt').value;
+  navigator.clipboard.writeText(txt)
+    .then(() => { beep('bell'); alert('Copied! Share with your loved ones 💌'); })
+    .catch(() => { document.getElementById('wishtxt').select(); document.execCommand('copy'); alert('Copied! 💌'); });
+}
+
+/* KEYBOARD */
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' && cur < total) goTo(cur + 1);
+  if (e.key === 'ArrowLeft'  && cur > 1)     goTo(cur - 1);
+});
+
+setTimeout(() => { if (cur === 1) confetti(); }, 2000);
+</script>
+</body>
+</html>
